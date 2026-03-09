@@ -23,8 +23,8 @@ RUN npm install -g serve
 # Copy built assets from builder
 COPY --from=builder /app/dist ./dist
 
-# Expose port 3000 (Cloud Run default port requirement for this setup, or 8080)
-EXPOSE 3000
+# Expose port 8080 (Cloud Run default)
+EXPOSE 8080
 
-# Start the server
-CMD ["serve", "-s", "dist", "-l", "3000"]
+# Start the server, respecting the PORT environment variable
+CMD ["sh", "-c", "serve -s dist -l ${PORT:-8080}"]
