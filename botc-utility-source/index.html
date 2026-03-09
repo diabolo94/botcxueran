@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>染鐘樓謎團萬能工具</title>
+    <script>
+      // Polyfill for process to prevent ReferenceError in browser
+      window.process = window.process || { env: {} };
+      window.process.env = window.process.env || {};
+      window.process.env.NODE_ENV = window.process.env.NODE_ENV || 'production';
+      window.process.version = window.process.version || '';
+      window.process.nextTick = window.process.nextTick || function(cb) { setTimeout(cb, 0); };
+    </script>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              // Dark theme colors
+              'ravens-night': '#0d1117',
+              'midnight-ink': '#161b22',
+              'slate-gray': '#21262d',
+              'moonlit-stone': '#8b949e',
+              'parchment': '#c9d1d9',
+              'blood-red': '#f85149',
+              'demon-fire': '#da3633',
+              'townsfolk-blue': '#58a6ff',
+              'celestial-gold': '#e3b341',
+              
+              // Light theme colors
+              'daylight-bg': '#f8fafc',
+              'parchment-white': '#ffffff',
+              'stone-border': '#e2e8f0',
+              'ink-text': '#1e293b',
+              'slate-text': '#64748b',
+            },
+            fontFamily: {
+              'serif': ['Georgia', 'serif'],
+              'sans': ['system-ui', 'sans-serif'],
+            },
+          }
+        }
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react-i18next": "https://aistudiocdn.com/react-i18next@^16.2.4",
+    "i18next": "https://aistudiocdn.com/i18next@^25.6.1",
+    "uuid": "https://aistudiocdn.com/uuid@^13.0.0",
+    "react-dom": "https://aistudiocdn.com/react-dom@^19.2.0",
+    "jszip": "https://aistudiocdn.com/jszip@^3.10.1",
+    "peerjs": "https://esm.sh/peerjs@1.5.2?bundle",
+    "firebase/": "https://aistudiocdn.com/firebase@^12.6.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "html2pdf.js": "https://esm.sh/html2pdf.js@0.10.1",
+    "lz-string": "https://aistudiocdn.com/lz-string@^1.5.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-daylight-bg dark:bg-ravens-night text-ink-text dark:text-parchment font-sans transition-colors duration-300">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
