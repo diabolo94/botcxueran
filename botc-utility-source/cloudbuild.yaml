@@ -1,0 +1,11 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: [
+    'build',
+    '--cache-from', 'europe-west1-docker.pkg.dev/gen-lang-client-0750989317/cloud-run-source-deploy/botcxueran/botcxueran-git:latest',
+    '-t', 'europe-west1-docker.pkg.dev/gen-lang-client-0750989317/cloud-run-source-deploy/botcxueran/botcxueran-git:$(COMMIT_SHA)',
+    '-t', 'europe-west1-docker.pkg.dev/gen-lang-client-0750989317/cloud-run-source-deploy/botcxueran/botcxueran-git:latest',
+    '.', # 這表示建構上下文是當前目錄 (botcxueran/botc-utility-source/)
+    '-f', 'Dockerfile' # 在當前目錄中尋找 Dockerfile
+  ]
+  # 不需要 dir 參數，因為觸發器已經將工作目錄設定到 botcxueran/botc-utility-source/
